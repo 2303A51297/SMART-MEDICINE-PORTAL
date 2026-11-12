@@ -34,7 +34,13 @@ async function main() {
     remote: 'origin',
     ref: branch,
     url: repoUrl,
-    onAuth: () => ({ username: token || '' })
+    onAuth: () => {
+      // GitHub standard: username + personal access token as password
+      return {
+        username: '2303A51297',
+        password: token
+      };
+    }
   });
 
   console.log('[Git Push] Successfully pushed to GitHub!', pushResult);
@@ -44,3 +50,4 @@ main().catch(err => {
   console.error('[Git Push Error]:', err.message);
   process.exit(1);
 });
+
