@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pharmacy-config
+  labels:
+    app: smart-pharmacy
+data:
+  NODE_ENV: "production"
+  PORT: "5000"
+  MONGO_URI: "mongodb://mongodb-service:27017/smart_pharmacy"
+  CLIENT_URL: "http://localhost:30080"
+
