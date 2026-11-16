@@ -67,15 +67,13 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-if (!process.env.VERCEL) {
-  const server = app.listen(PORT, () => {
-    console.log(`=======================================================`);
-    console.log(`🏥 SMART PHARMACY BACKEND SERVER RUNNING ON PORT ${PORT}`);
-    console.log(`   Health Check: http://localhost:${PORT}/api/health`);
-    console.log(`   Environment:  ${process.env.NODE_ENV || 'development'}`);
-    console.log(`=======================================================`);
-  });
-}
+const server = app.listen(PORT, () => {
+  console.log(`=======================================================`);
+  console.log(`🏥 SMART PHARMACY BACKEND SERVER RUNNING ON PORT ${PORT}`);
+  console.log(`   Health Check: http://localhost:${PORT}/api/health`);
+  console.log(`   Environment:  ${process.env.NODE_ENV || 'development'}`);
+  console.log(`=======================================================`);
+});
 
 // Graceful termination handling
 process.on('unhandledRejection', (err) => {
